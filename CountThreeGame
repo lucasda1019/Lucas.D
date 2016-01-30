@@ -1,0 +1,40 @@
+
+public class CountThreeGame {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int maxNumber = 10;
+		boolean[] players = new boolean[maxNumber];	//initialize players
+		for(int n=0; n<players.length;n++){
+			players[n] = true;
+		}
+		
+		int countNumber = 0; 
+		int playersAmount = players.length;
+		int playersIndex = 0;
+		
+		while(playersAmount > 3){	//if count to three then pick out the guy 
+			if(players[playersIndex] == true){
+				countNumber ++;				
+				if(countNumber == 3){
+					players[playersIndex] = false;
+					playersAmount --;
+					countNumber = 0;
+				}
+			}		
+			
+			playersIndex ++;
+			if(playersIndex == players.length){	//turn to next round 
+				playersIndex = 0;
+				countNumber = 0;
+			}			
+		}
+		
+		for (int n=0; n<players.length;n++){	//pring out Winners
+			if (players[n] == true){
+				System.out.print(n+1+" ");
+			}	
+		}
+	}
+
+}
